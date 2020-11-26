@@ -3,9 +3,10 @@ This is a task of object detection with [The Street View House Numbers (SVHN) Da
 
 # Reproducing Submission
 1. [Installation](#Installation)
-2. [Dataset Configuration](#Dataset-Configuration)
-3. [Training](#Training)
-4. [Inference](#Inference)
+2. [File Configuration](#File-Configuration)
+3. [Dataset Configuration](#Dataset-Configuration)
+4. [Training](#Training)
+5. [Inference](#Inference)
 
 # Installation
 1. Clone this repository. 
@@ -22,6 +23,17 @@ git clone https://github.com/ultralytics/yolov5
 ```
 pip install -r requirements.txt
 ```
+# File Configuration
+Plase move files to the corresponding destination.
+
+| File Name | File Destination |
+|:-------- | :-------------- |
+| parse_data.py | yolov5/ |
+| detect.py | yolov5/ |
+| datasets.py | yolov5/utils/ |
+| svhn.yaml | yolov5/data/ |
+
+
 
 # Dataset Configuration
 To train SVHN dataset on YOLOv5, we need to set up the configuration for it.
@@ -58,12 +70,11 @@ SVHNDetection
 ```
 python parse_data.py -f ../svhn/images/train/digitStruct.mat -d <dividing_index>
 ```
-5. Place data configuration file ```svhn.yaml``` to ```yolov5/data```.
 
 # Training
 ### Model Configuration
-1. Download yolov5l.pt weights from [here](https://github.com/ultralytics/yolov5/releases)
-2.Replace ```yolov5/models/yolov5l.yaml``` by ```yolov5l.yaml```. Or just edit line 2 in ```yolov5/models/yolov5l.yaml``` as:
+1. Download yolov5l.pt weights from [here].(https://github.com/ultralytics/yolov5/releases)
+2. Edit ```yolov5/models/yolov5l.yaml``` line 2 as:
 ```
 # parameters
 nc: 11  # in svhn 0 is labeled as '10' so we have 11 classes '0' to '10'. And class '0' will never appear.
@@ -109,7 +120,7 @@ To output all testing result to one json file with structure as:
 ...
 {"bbox": [(y1, x1, y2, x2)], "score": [conf], "label": [cls]}]
 ```
-Please replase``` yolov5/detect.py``` by ```detect.py```. And you have to change the name of trained parameter file to model you used. For example ```yolov5/runs/train/<exp_no>/weights/last.pt``` to ```yolov5/runs/train/<exp_no>/weights/yolov5l.pt```. To get the results ordered numerically, please replase ```yolov5/utils/datasets.py``` by ```datasets.py```.
+You have to change the name of trained parameter file to model you used. For example ```yolov5/runs/train/<exp_no>/weights/last.pt``` to ```yolov5/runs/train/<exp_no>/weights/yolov5l.pt```.
 Inference command:
 ```
 python detect.py --source ../svhn/images/test --weights runs/train/<exp_no>/weights/yolov5l.pt --device 0 --json <output_json_file>
