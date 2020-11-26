@@ -65,8 +65,8 @@ SVHNDetection
 |
 |__ parse_data.py
 ```
-3. Pick a number as dividing index (ex.30000) to devide training images into training set and vaildation set. Move the images after dividing index (ex.30001) to ```svhn/images/val``` as vaildation set 
-4. Parse label data from ```svhn/images/train/digitStruct.mat```.
+3. Pick a number as dividing index (ex. 30000) to devide training images into training set and vaildation set. Move the images after dividing index (ex. 30001) to ```svhn/images/val``` as vaildation set 
+4. Parse label data:
 ```
 python parse_data.py -f ../svhn/images/train/digitStruct.mat -d <dividing_index>
 ```
