@@ -73,7 +73,7 @@ python parse_data.py -f ../svhn/images/train/digitStruct.mat -d <dividing_index>
 
 # Training
 ### Model Configuration
-1. Download yolov5l.pt weights from [here].(https://github.com/ultralytics/yolov5/releases)
+1. Download yolov5l.pt weights from [here](https://github.com/ultralytics/yolov5/releases).
 2. Edit ```yolov5/models/yolov5l.yaml``` line 2 as:
 ```
 # parameters
