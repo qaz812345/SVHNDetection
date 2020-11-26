@@ -112,7 +112,7 @@ python train.py --weights weights/yolov5l.pt --cfg models/yolov5l.yaml --data da
 If your GPUs are out of memory, please decrease batch size or change to smaller model like yolov5m or yolov5s. The way of changing configuration setting is simlar to yolov5l, please check [Model Configuration](#Model-Configuration) section above.
 
 # Inference
-To output all testing result to one json file with structure as:
+Output structure of json file:
 ```
 [{"bbox": [(y1, x1, y2, x2), (y1, x1, y2, x2)], "score": [conf, conf], "label": [cls, cls]},
 {"bbox": [], "score": [], "label": []},
@@ -120,6 +120,7 @@ To output all testing result to one json file with structure as:
 ...
 {"bbox": [(y1, x1, y2, x2)], "score": [conf], "label": [cls]}]
 ```
+
 You have to change the name of trained parameter file to model you used. For example ```yolov5/runs/train/<exp_no>/weights/last.pt``` to ```yolov5/runs/train/<exp_no>/weights/yolov5l.pt```.
 Inference command:
 ```
