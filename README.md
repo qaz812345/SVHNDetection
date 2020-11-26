@@ -24,7 +24,7 @@ git clone https://github.com/ultralytics/yolov5
 pip install -r requirements.txt
 ```
 # File Configuration
-Plase move files to the corresponding destination.
+Please move files to the corresponding destination.
 
 | File Name | File Destination |
 |:-------- | :-------------- |
