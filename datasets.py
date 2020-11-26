@@ -120,7 +120,7 @@ class LoadImages:  # for inference
         if '*' in p:
             files = sorted(glob.glob(p, recursive=True))  # glob
         elif os.path.isdir(p):
-            files = sorted(glob.glob(os.path.join(p, '*.*')), key=lambda f: int(re.sub('\D', '', f)))  # dir
+            files = sorted(glob.glob(os.path.join(p, '*.*')), key=lambda f: int(re.sub('\D', '', f)))  # get files in dir ordered numerically
         elif os.path.isfile(p):
             files = [p]  # files
         else:
